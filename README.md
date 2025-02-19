@@ -121,5 +121,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgments
 
 - Next.js team for the amazing framework
-- Vercel for hosting and database solutions
-- All contributors who have helped shape this project
