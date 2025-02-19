@@ -13,6 +13,14 @@ A modern Content Management System built with Next.js for managing your professi
 - **Responsive Design**: Fully responsive interface that works on all devices
 - **Secure**: Built with modern security practices
 
+## Screenshots
+
+Here are some screenshot of the application:
+
+### Dashboard Homepage
+![Portfolio CMS Dashboard Homepage](/public/screenshot.png)
+*The dashboard provides a comprehensive overview of your portfolio management system. It features an intuitive sidebar navigation, real-time statistics, and quick access to manage your work experience, education, skills, and projects. The modern and clean interface ensures a seamless content management experience.*
+
 ## Tech Stack
 
 - **Frontend**: Next.js 15, React, CSS Modules
