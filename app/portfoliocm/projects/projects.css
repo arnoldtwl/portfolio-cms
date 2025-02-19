@@ -1,0 +1,140 @@
+/* Error Message Styling */
+.error-message {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--error);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Loading State */
+.loading {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: var(--spacing-xl);
+  font-size: 1.1rem;
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+  width: 95%;
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+}
+
+.form-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  resize: vertical;
+}
+
+/* Projects Page Specific Styles */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-md);
+}
+
+.project-title {
+  margin: 0;
+  color: var(--primary);
+}
+
+.project-description {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+  flex-grow: 1;
+}
+
+.project-links {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  transition: all 0.3s ease;
+  background-color: var(--background);
+}
+
+.project-link:hover {
+  background-color: var(--background-hover);
+  transform: translateY(-1px);
+}
+
+.link-icon {
+  font-size: 1.1rem;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-sm);
+}
+
+.card {
+  margin-bottom: var(--spacing-md);
+}
+
+.card h3 {
+  color: var(--primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.button-group {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.button-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  transition: background-color 0.3s ease;
+}
+
+.button-icon:hover {
+  background-color: var(--background);
+}

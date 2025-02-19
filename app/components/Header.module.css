@@ -1,0 +1,52 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #D9D9D9; /* Final adjustment to match logo background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 70px;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  object-fit: contain;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.searchBar input {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  width: 300px;
+  font-size: 0.875rem;
+}
+
+.userMenu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #002366; /* Navy blue from logo */
+}
+
+.profileButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profileButton img {
+  border-radius: 50%;
+}

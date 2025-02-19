@@ -4,7 +4,6 @@
 /node_modules
 /.pnp
 .pnp.js
-.yarn/install-state.gz
 
 # testing
 /coverage
@@ -25,12 +24,25 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
-.env*.local
+# add .env file to .gitignore
+echo ".env" >> .gitignore
+.env
+
 
 # vercel
 .vercel
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+/data/resume.json
+
+# mdx files
+
+```mdx
+---
+title: 'Nextjs_14_app_router_full'
+'
+# mdx files
+*.mdx
+
+
+# windsurf rules
+.windsurfrules

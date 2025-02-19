@@ -1,0 +1,65 @@
+.sidebar {
+  width: 200px;
+  background-color: #D9D9D9;
+  height: 100vh;
+  padding: 0.75rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 176px;
+  width: 176px;
+  margin: 0 auto;
+}
+
+.logo {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  padding: 0.625rem;
+  color: #4a5568;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  gap: 0.75rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-size: 0.9rem;
+  width: 176px;
+}
+
+.navLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.active {
+  background-color: #4299e1;
+  color: white;
+}
+
+.icon {
+  font-size: 1.1rem;
+  min-width: 20px;
+  text-align: center;
+}

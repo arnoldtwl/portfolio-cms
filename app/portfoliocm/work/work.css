@@ -1,0 +1,134 @@
+/* Work Experience Page Specific Styles */
+.work-timeline {
+  position: relative;
+  padding-left: var(--spacing-xl);
+}
+
+.work-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--border);
+}
+
+.work-card {
+  position: relative;
+  margin-bottom: var(--spacing-lg);
+}
+
+.work-card::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--spacing-xl));
+  top: var(--spacing-sm);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  border: 2px solid var(--surface);
+}
+
+.work-period {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.work-company {
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.work-position {
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+}
+
+.work-summary {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-top: var(--spacing-xs);
+  text-align: justify;
+}
+
+/* Work Page Specific Styles */
+.card {
+  margin-bottom: var(--spacing-md);
+}
+
+.card h3 {
+  color: var(--primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.25rem;
+}
+
+.company-name {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.button-group {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.button-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  transition: background-color 0.3s ease;
+}
+
+.button-icon:hover {
+  background-color: var(--background);
+}
+
+/* Error Message Styling */
+.error-message {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--error);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Loading State */
+.loading {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: var(--spacing-xl);
+  font-size: 1.1rem;
+}
+
+/* Form Field Styles */
+.form-group {
+  margin-bottom: var(--spacing-md);
+  width: 95%;
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+}
+
+.form-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  resize: vertical;
+}

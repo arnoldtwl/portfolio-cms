@@ -1,0 +1,67 @@
+/* Education Page Specific Styles */
+.education-form {
+  width: 100%;
+  max-width: 800px;
+}
+
+.card {
+  margin-bottom: var(--spacing-md);
+}
+
+.card h3 {
+  color: var(--primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.25rem;
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.education-metadata {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.education-metadata p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.button-group {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.button-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  transition: background-color 0.3s ease;
+}
+
+.button-icon:hover {
+  background-color: var(--background);
+}
+
+/* Error Message Styling */
+.error-message {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--error);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Loading State */
+.loading {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: var(--spacing-xl);
+  font-size: 1.1rem;
+}

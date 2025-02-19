@@ -1,0 +1,103 @@
+/* Profiles Page Specific Styles */
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+}
+
+.profile-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
+  border-radius: var(--radius-md);
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+.profile-info {
+  flex-grow: 1;
+}
+
+.profile-network {
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.profile-url {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  word-break: break-all;
+}
+
+.card {
+  margin-bottom: var(--spacing-md);
+}
+
+.card h3 {
+  color: var(--primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.text-link {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.text-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.button-group {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.button-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  transition: background-color 0.3s ease;
+}
+
+.button-icon:hover {
+  background-color: var(--background);
+}
+
+/* Error Message Styling */
+.error-message {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--error);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Loading State */
+.loading {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: var(--spacing-xl);
+  font-size: 1.1rem;
+}

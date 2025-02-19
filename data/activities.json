@@ -1,0 +1,12 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "type": "project",
+      "icon": "📝",
+      "title": "Portfolio CMS Created",
+      "description": "Initial setup of the Portfolio CMS dashboard",
+      "timestamp": "2024-12-28T08:00:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  color: #002366;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.statIcon {
+  font-size: 2rem;
+  color: #002366;
+  transition: transform 0.2s ease;
+}
+
+.statCard:hover .statIcon {
+  transform: scale(1.1);
+}
+
+.statInfo h3 {
+  color: #64748b;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.statValue {
+  color: #002366;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0.25rem 0 0;
+}
+
+.recentActivity {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 400px;
+}
+
+.recentActivity h2 {
+  color: #002366;
+  margin-bottom: 1rem;
+}
+
+.activityList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.activityItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #f8f9fa;
+  transition: all 0.2s ease;
+}
+
+.activityItem:hover {
+  background: #f1f5f9;
+  transform: translateX(4px);
+}
+
+.activityIcon {
+  font-size: 1.25rem;
+  transition: transform 0.2s ease;
+}
+
+.activityItem:hover .activityIcon {
+  transform: scale(1.1);
+}
+
+.activityItem h4 {
+  color: #002366;
+  margin: 0;
+}
+
+.activityItem p {
+  color: #64748b;
+  margin: 0.25rem 0;
+}
+
+.activityItem small {
+  color: #94a3b8;
+  font-size: 0.75rem;
+}
+
+.noActivity {
+  text-align: center;
+  padding: 2rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.activityItem {
+  animation: fadeIn 0.3s ease-out;
+}
