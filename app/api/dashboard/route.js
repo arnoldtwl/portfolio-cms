@@ -5,6 +5,15 @@ import { dashboardConfig } from '@/config/dashboard';
 // Revalidation interval in seconds (5 minutes)
 export const revalidate = 300;
 
+// In-memory cache
+let dashboardCache = {
+  data: null,
+  timestamp: 0
+};
+
+// Cache duration in milliseconds (30 seconds)
+const CACHE_DURATION = 30000;
+
 // Function to get activities
 async function getActivities() {
   const { activityRetentionDays, maxActivities } = dashboardConfig;
@@ -60,6 +69,21 @@ function getIconForType(type) {
 // GET handler with proper caching headers
 export async function GET() {
   try {
+    const now = Date.now();
+    
+    // Check if we have a valid cache
+    if (dashboardCache.data && (now - dashboardCache.timestamp) < CACHE_DURATION) {
+      // Return cached data with cache headers
+      const headers = new Headers();
+      headers.set('Cache-Control', 'public, max-age=30, s-maxage=300, stale-while-revalidate=59');
+      headers.set('X-Cache', 'HIT');
+      
+      return NextResponse.json(dashboardCache.data, { 
+        status: 200,
+        headers
+      });
+    }
+    
     // Run cleanup less frequently (once per hour) using a timestamp check
     const CLEANUP_INTERVAL = 3600000; // 1 hour in milliseconds
     const shouldCleanup = !global.lastCleanupTime || 
@@ -88,23 +112,30 @@ export async function GET() {
       education: parseInt(educationCount.rows[0].count)
     };
     
+    // Prepare response data
+    const responseData = { 
+      activities,
+      stats,
+      config: {
+        retentionDays: dashboardConfig.activityRetentionDays
+      }
+    };
+    
+    // Update cache
+    dashboardCache = {
+      data: responseData,
+      timestamp: now
+    };
+    
     // Set cache-control headers
     const headers = new Headers();
-    headers.set('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=59');
+    headers.set('Cache-Control', 'public, max-age=30, s-maxage=300, stale-while-revalidate=59');
+    headers.set('X-Cache', 'MISS');
     
-    return NextResponse.json(
-      { 
-        activities,
-        stats,
-        config: {
-          retentionDays: dashboardConfig.activityRetentionDays
-        }
-      },
-      { 
-        status: 200,
-        headers
-      }
-    );
+    return NextResponse.json(responseData, { 
+      status: 200,
+      headers
+    });
   } catch (error) {
     console.error('Error in GET handler:', error);
     return NextResponse.json(
@@ -129,6 +160,9 @@ export async function POST(request) {
         { status: 400 }
       );
     }
+    
+    // Invalidate the cache when a new activity is added
+    dashboardCache.timestamp = 0;
     
     return NextResponse.json(activity, { status: 201 });
   } catch (error) {
