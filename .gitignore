@@ -46,3 +46,13 @@ title: 'Nextjs_14_app_router_full'
 
 # windsurf rules
 .windsurfrules
+
+# Ignore specific files and folders
+/app/api/blog/
+/app/blog/
+PROJECTPLAN.md
+blog_database_schema.sql
+
+
+
+

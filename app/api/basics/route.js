@@ -19,14 +19,15 @@ function getFieldDisplayName(field) {
   const displayNames = {
     name: 'Full Name',
     label: 'Professional Title',
-    image: 'Profile Image',
     email: 'Email Address',
+    picture: 'Profile Image',
+    website: 'Website URL',
     phone: 'Phone Number',
-    url: 'Website URL',
+    address: 'Address',
+    city: 'City',
+    countryCode: 'Country Code',
+    region: 'Region',
     summary: 'Professional Summary',
-    location: 'Location',
-    relocation: 'Relocation Status',
-    // Add more field mappings as needed
   };
   return displayNames[field] || field.charAt(0).toUpperCase() + field.slice(1);
 }
@@ -121,12 +122,14 @@ export async function GET() {
 
 // Handler for PUT requests - Update a single field in basics data
 export async function PUT(req) {
+  const client = await sql.connect();
   try {
     const data = await req.json();
     
     // Validate input
     const validationErrors = validateBasicsInput(data);
     if (validationErrors.length > 0) {
+      client.release();
       return NextResponse.json(
         { error: validationErrors.join(', ') },
         { status: 400 }
@@ -136,12 +139,10 @@ export async function PUT(req) {
     // Sanitize input
     const sanitizedData = sanitizeInput(data);
 
-    const result = await sql`
-      UPDATE basics 
-      SET value = ${sanitizedData.value}
-      WHERE id = ${data.id} AND field = ${sanitizedData.field}
-      RETURNING *;
-    `;
+    // Build a dynamic SQL query to update the specific field
+    const fieldName = sanitizedData.field;
+    const query = `UPDATE basics SET "${fieldName}" = $1 WHERE id = $2 RETURNING *;`;
+    const result = await client.query(query, [sanitizedData.value, data.id]);
 
     // Get the display name for the field
     const fieldDisplayName = getFieldDisplayName(sanitizedData.field);
@@ -154,8 +155,10 @@ export async function PUT(req) {
       description: `Updated ${fieldDisplayName} to "${sanitizedData.value}"`
     });
 
+    client.release();
     return NextResponse.json(result.rows[0]);
   } catch (error) {
+    client.release();
     console.error("Error updating a field in basics:", error);
     return NextResponse.json({ error: "Failed to update field" }, { status: 500 });
   }

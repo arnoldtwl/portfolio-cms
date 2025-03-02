@@ -36,12 +36,23 @@ export default function Dashboard() {
   // Fetch initial data
   useEffect(() => {
     fetchDashboardData();
-  }, []);
-
-  // Set up polling for real-time updates
-  useEffect(() => {
-    const interval = setInterval(fetchDashboardData, 5000); // Poll every 5 seconds
-    return () => clearInterval(interval);
+    
+    // Set up event listener for visibility changes
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        fetchDashboardData();
+      }
+    };
+    
+    // Add event listeners for page visibility and focus
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('focus', fetchDashboardData);
+    
+    return () => {
+      // Clean up event listeners
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('focus', fetchDashboardData);
+    };
   }, []);
 
   const formatTimeAgo = (timestamp) => {
